@@ -11,5 +11,11 @@ func default_lifecycle(input:InputPackage)->void:
 		emit_change_state("MoveState9")
 
 
+func on_enter()->void:
+	pass
+
+func physics_update(delta:float)->void:
+	pass
+	
 func on_exit()->void:
 	latch = false

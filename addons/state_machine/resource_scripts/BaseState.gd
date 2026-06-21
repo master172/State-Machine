@@ -79,17 +79,10 @@ func _on_enter()->void:
 func _on_exit()->void:
 	on_exit()
 
-#NOTE mark abstract
-func on_enter()->void:
-	pass
-
-#NOTE mark abstract
-func on_exit()->void:
-	pass
-
-#NOTE mark abstract
-func default_lifecycle(input:InputPackage)->void:
-	pass
+@abstract func on_enter()->void
+@abstract func on_exit()->void
+@abstract func default_lifecycle(input:InputPackage)->void
+@abstract func physics_update(delta:float)->void
 
 func _default_lifecycle(input:InputPackage)->void:
 	if has_forced_state:
@@ -100,9 +93,8 @@ func _default_lifecycle(input:InputPackage)->void:
 		return
 	default_lifecycle(input)
 
-#NOTE mark abstract
-func physics_update(delta:float)->void:
-	pass
+
+
 
 func _physics_update(delta:float)->void:
 	physics_update(delta)

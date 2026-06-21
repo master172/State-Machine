@@ -5,6 +5,7 @@ signal state_transition(previous_state:BaseState,current_state:BaseState)
 
 var owner_state_machine:BaseStateMachine
 
+@export var event_bus:EventBus
 @export var resources:Resources
 @export var animation_database:AnimationDataReferencer
 @export var priority_dict:Dictionary[StringName,float] = {
