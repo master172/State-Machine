@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dtqdw31431usp"]
+
+[ext_resource type="Script" uid="uid://bxwld3g8wcx8k" path="res://tests/test.gd" id="1_ok4yu"]
+[ext_resource type="PackedScene" uid="uid://dmw7erfir0sf" path="res://tests/base_state_machine.tscn" id="1_w3aqi"]
+
+[node name="Node2D" type="Node2D" unique_id=679816317 node_paths=PackedStringArray("base_state_machine")]
+script = ExtResource("1_ok4yu")
+base_state_machine = NodePath("BaseStateMachine")
+
+[node name="BaseStateMachine" parent="." unique_id=634515783 instance=ExtResource("1_w3aqi")]

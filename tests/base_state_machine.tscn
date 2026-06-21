@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dmw7erfir0sf"]
+
+[ext_resource type="Script" uid="uid://f67luo00hlrq" path="res://addons/state_machine/resource_scripts/BaseStateMachine.gd" id="1_r8icb"]
+[ext_resource type="Script" uid="uid://bspu7o34f57wv" path="res://tests/idle_state.gd" id="2_yy4qm"]
+[ext_resource type="Script" uid="uid://bhhhmncvgiajc" path="res://tests/move_state.gd" id="3_ckrn1"]
+
+[node name="BaseStateMachine" type="Node" unique_id=634515783]
+script = ExtResource("1_r8icb")
+metadata/_custom_type_script = "uid://f67luo00hlrq"
+
+[node name="IdleState" type="Node" parent="." unique_id=1294341294]
+script = ExtResource("2_yy4qm")
+
+[node name="MoveState" type="Node" parent="." unique_id=1446117285]
+script = ExtResource("3_ckrn1")
+
+[node name="MoveState2" type="Node" parent="MoveState" unique_id=1626907043]
+script = ExtResource("3_ckrn1")
+
+[node name="MoveState3" type="Node" parent="MoveState" unique_id=1525412911]
+script = ExtResource("3_ckrn1")
+
+[node name="MoveState9" type="Node" parent="MoveState/MoveState3" unique_id=904727999]
+script = ExtResource("3_ckrn1")
+
+[node name="MoveState4" type="Node" parent="MoveState" unique_id=189218784]
+script = ExtResource("3_ckrn1")
+
+[node name="MoveState7" type="Node" parent="MoveState/MoveState4" unique_id=134610764]
+script = ExtResource("3_ckrn1")
+
+[node name="MoveState8" type="Node" parent="MoveState/MoveState4" unique_id=611896910]
+script = ExtResource("3_ckrn1")
+
+[node name="MoveState5" type="Node" parent="MoveState" unique_id=316916349]
+script = ExtResource("3_ckrn1")
+
+[node name="MoveState6" type="Node" parent="MoveState/MoveState5" unique_id=424643503]
+script = ExtResource("3_ckrn1")
