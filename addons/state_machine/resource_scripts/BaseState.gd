@@ -8,6 +8,7 @@ var child_states:Dictionary[StringName,BaseState] = {
 	
 }
 
+var state_path:NodePath
 var state_enter_time:float
 
 #region relative info population
@@ -69,11 +70,11 @@ func _on_exit()->void:
 
 #NOTE mark abstract
 func on_enter()->void:
-	pass
+	print("entered ",self.name)
 
 #NOTE mark abstract
 func on_exit()->void:
-	pass
+	print("exited ",self.name)
 
 #NOTE mark abstract
 func default_lifecycle()->void:

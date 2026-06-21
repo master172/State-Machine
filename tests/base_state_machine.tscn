@@ -29,7 +29,19 @@ script = ExtResource("3_ckrn1")
 [node name="MoveState7" type="Node" parent="MoveState/MoveState4" unique_id=134610764]
 script = ExtResource("3_ckrn1")
 
+[node name="MoveState11" type="Node" parent="MoveState/MoveState4/MoveState7" unique_id=1170705338]
+script = ExtResource("3_ckrn1")
+
+[node name="MoveState12" type="Node" parent="MoveState/MoveState4/MoveState7" unique_id=2008055867]
+script = ExtResource("3_ckrn1")
+
 [node name="MoveState8" type="Node" parent="MoveState/MoveState4" unique_id=611896910]
+script = ExtResource("3_ckrn1")
+
+[node name="MoveState19" type="Node" parent="MoveState/MoveState4/MoveState8" unique_id=418654566]
+script = ExtResource("3_ckrn1")
+
+[node name="MoveState10" type="Node" parent="MoveState/MoveState4/MoveState8" unique_id=856210778]
 script = ExtResource("3_ckrn1")
 
 [node name="MoveState5" type="Node" parent="MoveState" unique_id=316916349]
