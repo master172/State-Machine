@@ -6,9 +6,13 @@
 
 [node name="BaseStateMachine" type="Node" unique_id=634515783]
 script = ExtResource("1_r8icb")
+priority_dict = Dictionary[StringName, float]({
+&"movestate10": 0.0,
+&"no_input": 1.0
+})
 metadata/_custom_type_script = "uid://f67luo00hlrq"
 
-[node name="IdleState" type="Node" parent="." unique_id=1294341294]
+[node name="No_Input" type="Node" parent="." unique_id=1294341294]
 script = ExtResource("2_yy4qm")
 
 [node name="MoveState" type="Node" parent="." unique_id=1446117285]

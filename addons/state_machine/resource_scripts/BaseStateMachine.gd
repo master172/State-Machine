@@ -1,9 +1,12 @@
 extends Node
 class_name BaseStateMachine
 
+signal state_transition(previous_state:BaseState,current_state:BaseState)
 
 var owner_state_machine:BaseStateMachine
 
+@export var resources:Resources
+@export var animation_database:AnimationDataReferencer
 @export var priority_dict:Dictionary[StringName,float] = {
 	
 }
@@ -47,14 +50,14 @@ func _ready() -> void:
 			)
 
 #region update cycle
-func _update_state_machine(delta:float)->void:
+func _update_state_machine(input:InputPackage,delta:float)->void:
 	if current_state == null:
 		return
-	state_update_function(delta)
+	state_update_function(input,delta)
 
-func state_update_function(delta:float)->void:
+func state_update_function(input:InputPackage,delta:float)->void:
 	for i:BaseState in current_active_states:
-		i._default_lifecycle()
+		i._default_lifecycle(input)
 		i._physics_update(delta)
 
 #endregion
@@ -75,7 +78,9 @@ func transition_to_state(prev_state:BaseState,next_state:StringName)->void:
 	current_active_states = get_base_state_array_from_string_array(next_state_array)
 	
 	for i:int in range(least_common_ancestor+1,current_active_states.size()):
-		current_active_states[i].on_enter()
+		current_active_states[i]._on_enter()
+	
+	state_transition.emit(prev_state,current_state)
 
 func get_base_state_array_from_string_array(array:PackedStringArray)->Array[BaseState]:
 	var returning_array:Array[BaseState]
