@@ -19,6 +19,9 @@ var child_states:Dictionary[StringName,BaseState] = {
 var state_path:NodePath
 var state_enter_time:float
 
+var forced_state_name:StringName
+var has_forced_state:bool = false
+
 #region relative info population
 
 func set_parent_state_machine(machine:BaseStateMachine)->void:
@@ -89,6 +92,12 @@ func default_lifecycle(input:InputPackage)->void:
 	pass
 
 func _default_lifecycle(input:InputPackage)->void:
+	if has_forced_state:
+		has_forced_state = false
+		var temp_forced_state:StringName = forced_state_name
+		forced_state_name = ""
+		emit_change_state(temp_forced_state)
+		return
 	default_lifecycle(input)
 
 #NOTE mark abstract
@@ -101,7 +110,15 @@ func _physics_update(delta:float)->void:
 #endregion
 
 #region transitions
-
+func try_forced_move(new_forced_state:StringName)->void:
+	new_forced_state = new_forced_state.to_lower()
+	var move_priority:Dictionary[StringName,float] = owning_state_machine.priority_dict
+	if not has_forced_state:
+		has_forced_state = true
+		forced_state_name = new_forced_state
+	elif move_priority[new_forced_state] > move_priority[forced_state_name]:
+		forced_state_name = new_forced_state
+		
 func move_priority_sort(a:StringName,b:StringName)->bool:
 	var move_priority:Dictionary[StringName,float] = owning_state_machine.priority_dict
 	return move_priority[a] > move_priority[b]
